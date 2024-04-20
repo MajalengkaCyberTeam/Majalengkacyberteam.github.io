@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Dashboard</title>
+    
+    <!-- Open Graph Protocol meta tags -->
+    <meta property="og:title" content="Infoinbos">
+    <meta property="og:description" content="Cari dan Temukan budak Mexcut disini!">
+    <meta property="og:image" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+    <meta property="og:url" content="URL_halaman_web">
+    
+    <!-- Contoh tag meta untuk sosial media lainnya -->
+    <meta name="twitter:title" content="Infoinbos">
+    <meta name="twitter:description" content="Cari dan Temukan budak Mexcut disini!">
+    <meta name="twitter:image" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    
+       <!-- Open Graph Protocol meta tags untuk Facebook -->
+       <meta property="og:title" content="infoinbos">
+       <meta property="og:description" content="Cari dan Temukan budak mexcut disini">
+       <meta property="og:image" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+       <meta property="og:url" content="URL_halaman_web">
+       <meta property="og:site_name" content="infoinbos">
+       <meta property="article:publisher" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+       <meta property="article:author" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+       <meta property="og:type" content="website">
+       
+       <!-- Tag meta khusus untuk WhatsApp -->
+       <meta property="og:site_name" content="infoinbos">
+       <meta property="article:publisher" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+       <meta property="article:author" content="https://r2.easyimg.io/gk7o5d3gk/1.jpg">
+       <meta property="og:type" content="website">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Style untuk mempercantik tampilan form */
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        /* Style untuk membuat konten dashboard responsif */
+        #dashboard {
+            column-count: 1;
+            column-gap: 20px;
+        }
+        @media only screen and (min-width: 600px) {
+            #dashboard {
+                column-count: 2;
+            }
+        }
+        @media only screen and (min-width: 900px) {
+            #dashboard {
+                column-count: 3;
+            }
+        }
+        p {
+            margin: 5px;
+            text-align: center;
+            font-weight: bold; /* membuat teks menjadi tebal */
+            font-style: Times new roman; /* membuat teks menjadi miring */
+            font-family: Times New Roman, serif; /* mengubah font */
+        }
+        
+        img {
+            display: block; /* agar gambar berada di tengah */
+            margin: auto; /* agar gambar berada di tengah */
+            max-width: 200px; /* lebar maksimum gambar */
+            height: auto; /* agar gambar tetap proporsional */
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+            animation: heartbeat 1.5s infinite alternate;
+        }
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+        
+        #not-found {
+            display: none; /* default: sembunyikan */
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f44336; /* merah */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Modal Popup -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Selamat Datang!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Konten modal di sini -->
+        <p>Selamat datang di halaman web Infoinbos!</p><br>
+        <p>Web ini di buat Bertujuan untuk memudahkan mencari informasi tentang budak Mexcut</p><br>
+        <p>Budak Mexcut yang di tampilkan disini di dapatkan dari Bos-Bos yang telah mengalami kerugian akibat orang Tersebut</p>
+        <p>Agar Para pencari Kariyawan bisa meminimalisir kerugian akibat budak Mexcut!</p><br>
+        <p>Silakan gunakan fitur pencarian untuk menemukan informasi yang Anda cari.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<h2>Search Dashboard</h2>
+
+<form>
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search" placeholder="Nama yang ingin dicari...">
+    <input type="submit" value="Search">
+</form>
+
+<div id="dashboard">
+    <!-- Informasi-informasi yang ditampilkan di dashboard -->
+    <p>
+        <img src="1.jpg" alt="Ismail"> <br>
+         Informasi tentang orang ini : <br><br>
+        Nama : Ismail Wahyu Lana<br><br>
+        Alamat : Bandung,Kec Sukajadi, Desa Sukajadi<br><br>
+        Kronologis : Membawa kabur HP Baru, Membawa kabur mesin printer dan Membawa kabur Barang <br><br>
+        Nomor HP : -
+    </p>
+    <p> Informasi tentang orang ini :<br>
+        <img src="2.jpg" alt="Cecep"> 
+         <br><br>
+        Nama   : Cecep<br>
+        Alamat : Sumedang<br>
+        Kronologis : Membawa kabur HP Baru, Membawa kabur mesin printer dan Membawa kabur Barang<br><br>
+        Nomor HP : -<br><br><br>
+    </p>
+    
+    
+    
+    
+    <p> Informasi tentang orang ini : <br><br>
+        <img src="3.jpg" alt="Ade Abiel"> <br>
+        Informasi tentang orang ini : <br><br>
+        Nama : Ade Tio alias Ade Abil<br>
+        Alamat : Majalengka, Sumedang<br>
+        Kronologis : Tidak Nempelin, Aset Gejlog, Kasbon<br>
+        Nomor HP : - <br><br><br>
+    </p>
+    
+    
+    
+    
+    <p> Informasi tentang orang ini : <br><br>
+        <img src="4.jpg" alt="agung"> <br>
+        Informasi tentang orang ini : <br><br>
+        Nama : Agung<br>
+        Alamat : Majalengka, Tasik<br>
+        Kronologis : Mafia Berat, Aset Gejlog, Minjam uang ke konsumen, Ngambil uang DP<br>
+        No HP : - <br><br><br>
+    </p>
+    <p> Informasi tentang orang ini : <br><br>
+        <img src="5.jpg" alt="Rudiawan"> <br>
+        Informasi tentang orang ini : <br><br>
+        Nama : Rudiawan<br>
+        Alamat : Cikeusik, Salagedang dan Istrinya Cianjur<br><br>
+        Kronologis : Tukang Tipu Banyak Masalah<br>
+        Nomor HP : -<br><br><br>
+        
+    </p>
+    
+    <p> Informasi tentang orang ini : <br><br>
+        <img src="6.jpg" alt="Nama">
+        Nama : <br>
+        Alamat : <br>
+        Kronologis : <br>
+        Nomor HP : - <br><br><br></p>
+        
+        
+        <p> Informasi tentang orang ini : <br><br>
+        <img src="6.jpg" alt="Nama">
+        Nama : <br>
+        Alamat : <br>
+        Kronologis : <br>
+        Nomor HP : - <br><br><br></p>
+        
+        
+        
+        <p> Informasi tentang orang ini : <br><br>
+        <img src="6.jpg" alt="Nama">
+        Nama : <br>
+        Alamat : <br>
+        Kronologis : <br>
+        Nomor HP : - <br><br><br></p>
+        
+        
+        <p> Informasi tentang orang ini : <br><br>
+        <img src="6.jpg" alt="Nama">
+        Nama : <br>
+        Alamat : <br>
+        Kronologis : <br>
+        Nomor HP : - <br><br><br></p>
+        
+        
+        
+        
+        
+        
+</div>
+
+<div id="not-found">Informasi tidak ditemukan</div>
+
+<footer>
+   Copyright &copy; mr.r45k1n
+</footer>
+<p>Sok mangga, Untuk informasi tambahan Anda bisa mengirimkan Poto, Nama dan Kronologis <a href="https://chat.whatsapp.com/BQWtrNCTKvB7oQ18SM3ikU?fbclid=IwZXh0bgNhZW0CMTEAAR2RwrKIZeqXjmIzwT0hSH0w_qDf7dvAQVL2KxyD-KljqfXrh4mO2zAlddA_aem_Ael8qK4BRrvbmCneJQR07FsaIRx82WtZUfElHebQhMwZNhUz7ltKY2JxrUE70lN-dVOvJg_60G4K4v1qwYNoYiIU">Disini</a></p>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Menghentikan perilaku default form submit
+        let searchTerm = document.getElementById('search').value.toLowerCase(); // Mendapatkan nilai kata kunci pencarian dan mengonversi menjadi lowercase
+        let dashboardItems = document.querySelectorAll('#dashboard p'); // Mendapatkan semua elemen <p> di dalam div dengan id "dashboard"
+        
+        let found = false; // Inisialisasi variable untuk menunjukkan apakah informasi ditemukan
+        
+        // Membuat ekspresi reguler dari kata kunci pencarian dengan menambahkan tanda wildcard (*)
+        let regex = new RegExp(searchTerm.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&').replace(/\s+/g, '.*'), 'i');
+        
+        dashboardItems.forEach(function(item) {
+            let text = item.textContent.toLowerCase(); // Mengonversi teks di setiap elemen menjadi lowercase
+            if (text.match(regex)) { // Memeriksa apakah teks cocok dengan ekspresi reguler
+                item.style.display = 'block'; // Jika iya, tampilkan elemen
+                found = true; // Informasi ditemukan
+            } else {
+                item.style.display = 'none'; // Jika tidak, sembunyikan elemen
+            }
+        });
+        
+        // Menampilkan pesan "Informasi tidak ditemukan" jika tidak ada informasi yang ditemukan
+        if (!found) {
+            document.getElementById('not-found').style.display = 'block';
+        } else {
+            document.getElementById('not-found').style.display = 'none';
+        }
+    });
+</script>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script untuk menampilkan modal saat halaman dimuat -->
+<script>
+    $(document).ready(function(){
+        $('#exampleModal').modal('show');
+    });
+</script>
+
+</body>
+
+</body>
+</html>
